@@ -12,6 +12,8 @@ Identity-based Encryption solution you can trust.
 
 # CryptID.java
 
+[![CircleCI](https://circleci.com/gh/battila7/cryptid-java.svg?style=svg&circle-token=53e7cd3c82351e414663d74fe8617f31218d64e3)](https://circleci.com/gh/battila7/cryptid-java)
+
 Java 8 library implementing the Boneh-Franklin IBE system as described in [RFC 5091](https://tools.ietf.org/html/rfc5091).
 
 CryptID.java can be used to setup Boneh-Frankling Identity-based Encryption system instances of various security levels. Clients of the library can
