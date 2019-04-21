@@ -25,26 +25,30 @@
 		<project.build.outputEncoding>UTF-8</project.build.outputEncoding>
 
         <!-- DEPENDENCY versions -->
-        <jaxb.version>2.2.11</jaxb.version>
-        <javax-activation.version>1.1.1</javax-activation.version>
         <groovy.version>2.4.11</groovy.version>
-        <spock-core.version>1.1-groovy-2.4</spock-core.version>
+        <javax-activation.version>1.1.1</javax-activation.version>
+        <jaxb.version>2.2.11</jaxb.version>
         <picocli.version>3.3.0</picocli.version>
+        <spock-core.version>1.1-groovy-2.4</spock-core.version>
 
         <!-- PLUGIN versions -->
-        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
-        <gmavenplus-plugin.version>1.6</gmavenplus-plugin.version>
-        <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
-        <maven-site-plugin.version>3.3</maven-site-plugin.version>
-        <maven-project-info-reports-plugin.version>2.7</maven-project-info-reports-plugin.version>
-        <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
         <maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
+        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+        <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
+        <maven-project-info-reports-plugin.version>2.7</maven-project-info-reports-plugin.version>
+        <maven-site-plugin.version>3.3</maven-site-plugin.version>
+        <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
+
+        <codacy-maven-plugin.version>1.2.0</codacy-maven-plugin.version>
+        <gmavenplus-plugin.version>1.6</gmavenplus-plugin.version>
         <go-offline-maven-plugin.version>1.1.0</go-offline-maven-plugin.version>
+        <jacoco-maven-plugin.version>0.8.3</jacoco-maven-plugin.version>
     </properties>
 
     <modules>
         <module>cryptid-core</module>
         <module>cryptid-cli</module>
+        <module>coverage</module>
     </modules>
 
     <dependencyManagement>
@@ -103,6 +107,18 @@
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>${jacoco-maven-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
     				<artifactId>maven-assembly-plugin</artifactId>
                     <version>${maven-assembly-plugin.version}</version>
                 </plugin>
@@ -131,18 +147,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin.version}</version>
-                <configuration>
-                    <useFile>false</useFile>
-                    <includes>
-                        <include>**/*Spec.java</include>
-                    </includes>
-                </configuration>
             </plugin>
 
             <plugin>
@@ -175,6 +179,44 @@
             </plugin>
         </plugins>
     </reporting>
+
+    <!-- TODO: Uncomment, when Codacy setup is done. -->
+    <!--
+    <profiles>
+      <profile>
+          <id>code-coverage</id>
+          <activation>
+              <property><name>env.CI</name></property>
+          </activation>
+          <build>
+              <plugins>
+                  <plugin>
+                      <groupId>com.gavinmogan</groupId>
+                      <artifactId>codacy-maven-plugin</artifactId>
+                      <version>${codacy-maven-plugin.version}</version>
+                      <configuration>
+                          <apiToken>${env.CODACY_API_TOKEN}</apiToken>
+                          <projectToken>${env.CODACY_PROJECT_TOKEN}</projectToken>
+                          <coverageReportFile>coverage/target/site/jacoco-aggregate/jacoco.xml</coverageReportFile>
+                          <commit>${env.CIRCLE_SHA1}</commit>
+                          <codacyApiBaseUrl>https://api.codacy.com</codacyApiBaseUrl>
+                          <failOnMissingReportFile>false</failOnMissingReportFile>
+                      </configuration>
+                      <executions>
+                          <execution>
+                              <id>post-test</id>
+                              <phase>post-integration-test</phase>
+                              <goals>
+                                  <goal>coverage</goal>
+                              </goals>
+                          </execution>
+                      </executions>
+                  </plugin>
+              </plugins>
+          </build>
+      </profile>
+    </profiles>
+    -->
 
     <distributionManagement>
 		<site>
