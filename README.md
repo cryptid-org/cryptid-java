@@ -1,3 +1,15 @@
+<p align="center">
+  <a href="https://github.com/cryptid-org">
+    <img alt="CryptID" src="docs/img/cryptid-logo.png" width="200">
+  </a>
+</p>
+
+<p align="center">
+Identity-based Encryption solution you can trust.
+</p>
+
+---
+
 # CryptID.java
 
 Java 8 library implementing the Boneh-Franklin IBE system as described in [RFC 5091](https://tools.ietf.org/html/rfc5091).
