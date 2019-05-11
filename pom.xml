@@ -11,6 +11,14 @@
     <name>CryptID.java</name>
     <description>Cross-platform Identity-based Encryption solution.</description>
 
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
     <scm>
 		<developerConnection>scm:git:https://github.com/cryptid-org/cryptid-java.git</developerConnection>
 		<connection>scm:git:https://github.com/cryptid-org/cryptid-java.git</connection>
