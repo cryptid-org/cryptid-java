@@ -23,7 +23,7 @@ steps:
     reportDirectory: 'coverage/target/site/jacoco-aggregate'
     failIfCoverageEmpty: true
 
-- bash: 'mvn coveralls:report -DrepoToken=$(COVERALLS_REPO_TOKEN)'
+- bash: 'mvn coveralls:report -DrepoToken=$COVERALLS_REPO_TOKEN -DjacocoReports=./coverage/target/site/jacoco-aggregate/jacoco.xml'
   displayName: 'Upload Coverage to Coveralls'
   env:
     CI: true
