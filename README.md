@@ -1,12 +1,20 @@
-<p align="center">
+<div align="center">
   <a href="https://github.com/cryptid-org">
     <img alt="CryptID" src="docs/img/cryptid-logo.png" width="200">
   </a>
-</p>
+</div>
 
-<p align="center">
+<div align="center">
+
+[![Build Status](https://dev.azure.com/cryptid-org/cryptid-java/_apis/build/status/cryptid-org.cryptid-java?branchName=master)](https://dev.azure.com/cryptid-org/cryptid-java/_build/latest?definitionId=1&branchName=master)
+[![Coverage Status](https://coveralls.io/repos/github/cryptid-org/cryptid-java/badge.svg?branch=refs/heads/master)](https://coveralls.io/github/cryptid-org/cryptid-java?branch=refs/heads/master)
+[![License](https://img.shields.io/github/license/cryptid-org/cryptid-java.svg)](LICENSE)
+
+</div>
+
+<div align="center">
 Cross-platform Identity-based Encryption solution.
-</p>
+</div>
 
 ---
 
