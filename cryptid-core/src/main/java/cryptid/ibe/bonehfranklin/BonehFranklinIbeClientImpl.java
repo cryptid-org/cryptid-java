@@ -34,7 +34,8 @@ final class BonehFranklinIbeClientImpl extends IbeClient {
      * @param messageDigestFactory an appropriate message digest source
      * @param tatePairing a Tate-pairing instance
      */
-    BonehFranklinIbeClientImpl(PublicParameters publicParameters, SecureRandom secureRandom, MessageDigestFactory messageDigestFactory, TatePairing tatePairing) {
+    BonehFranklinIbeClientImpl(final PublicParameters publicParameters, final SecureRandom secureRandom,
+                               final MessageDigestFactory messageDigestFactory, final TatePairing tatePairing) {
         super(publicParameters);
 
         this.secureRandom = secureRandom;
@@ -43,7 +44,7 @@ final class BonehFranklinIbeClientImpl extends IbeClient {
     }
 
     @Override
-    public CipherTextTuple encrypt(String message, String identity) {
+    public CipherTextTuple encrypt(final String message, final String identity) {
         checkEncryptArguments(message, identity);
 
         byte[] messageBytes = message.getBytes();
@@ -110,7 +111,7 @@ final class BonehFranklinIbeClientImpl extends IbeClient {
     }
 
     @Override
-    public Optional<String> decrypt(PrivateKey privateKey, CipherTextTuple ciphertext) {
+    public Optional<String> decrypt(final PrivateKey privateKey, final CipherTextTuple ciphertext) {
         checkDecryptArguments(privateKey, ciphertext);
 
         // Let hashlen be the length of the output of the hash function hashlen measured in octets
@@ -163,7 +164,7 @@ final class BonehFranklinIbeClientImpl extends IbeClient {
         return Optional.empty();
     }
 
-    private void checkEncryptArguments(String message, String identity) {
+    private void checkEncryptArguments(final String message, final String identity) {
         Objects.requireNonNull(message);
         Objects.requireNonNull(identity);
 
@@ -176,7 +177,7 @@ final class BonehFranklinIbeClientImpl extends IbeClient {
         }
     }
 
-    private void checkDecryptArguments(PrivateKey privateKey, CipherTextTuple ciphertext) {
+    private void checkDecryptArguments(final PrivateKey privateKey, final CipherTextTuple ciphertext) {
         Objects.requireNonNull(privateKey);
         Objects.requireNonNull(ciphertext);
     }

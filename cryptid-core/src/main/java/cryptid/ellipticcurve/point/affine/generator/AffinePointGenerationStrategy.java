@@ -8,6 +8,9 @@ import java.security.SecureRandom;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * Abstract class representing random point generation on a specific elliptic curve.
+ */
 public abstract class AffinePointGenerationStrategy {
     private static final int ATTEMPT_LOWER_LIMIT = 1;
 
@@ -15,7 +18,12 @@ public abstract class AffinePointGenerationStrategy {
 
     protected final SecureRandom secureRandom;
 
-    AffinePointGenerationStrategy(TypeOneEllipticCurve ellipticCurve, SecureRandom secureRandom) {
+    /**
+     * Constructs a new generator which produces points on the specified curve.
+     * @param ellipticCurve the curve to generate points on
+     * @param secureRandom source of random values
+     */
+    AffinePointGenerationStrategy(final TypeOneEllipticCurve ellipticCurve, final SecureRandom secureRandom) {
         this.ellipticCurve = Objects.requireNonNull(ellipticCurve);
         this.secureRandom = Objects.requireNonNull(secureRandom);
     }
@@ -25,7 +33,7 @@ public abstract class AffinePointGenerationStrategy {
      * @param attemptLimit the maximum number of attempts
      * @return a point on the curve or an empty Optional if no point was generated
      */
-    public Optional<AffinePoint> generate(int attemptLimit) {
+    public Optional<AffinePoint> generate(final int attemptLimit) {
         if (attemptLimit < ATTEMPT_LOWER_LIMIT) {
             throw new IllegalArgumentException("Attempt limit must be at least " + ATTEMPT_LOWER_LIMIT);
         }

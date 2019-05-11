@@ -30,14 +30,15 @@ public class BonehFranklinIbeInitializer implements IbeInitializer {
     private final SolinasPrimeFactory primeFactory;
     private final GenerationStrategyFactory<?> generationStrategyFactory;
 
-    public BonehFranklinIbeInitializer(SecureRandom secureRandom, SolinasPrimeFactory solinasPrimeFactory, GenerationStrategyFactory<?> generationStrategyFactory) {
+    public BonehFranklinIbeInitializer(final SecureRandom secureRandom, final SolinasPrimeFactory solinasPrimeFactory,
+                                       final GenerationStrategyFactory<?> generationStrategyFactory) {
         this.secureRandom = Objects.requireNonNull(secureRandom);
         this.primeFactory = Objects.requireNonNull(solinasPrimeFactory);
         this.generationStrategyFactory = generationStrategyFactory;
     }
 
     @Override
-    public IbeSetup setup(SecurityLevel securityLevel) throws SetupException {
+    public IbeSetup setup(final SecurityLevel securityLevel) throws SetupException {
         // Construct the elliptic curve and its subgroup of interest
         // Select a random n_q-bit Solinas prime q
         Optional<BigInteger> qOptional = primeFactory.generate(securityLevel.getqLength(), PRIME_GENERATION_ATTEMPTS);

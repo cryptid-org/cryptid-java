@@ -16,7 +16,7 @@ public abstract class MillerAlgorithm {
 
     protected final BigInteger subgroupOrder;
 
-    public MillerAlgorithm(EllipticCurve ellipticCurve, BigInteger subgroupOrder) {
+    public MillerAlgorithm(final EllipticCurve ellipticCurve, final BigInteger subgroupOrder) {
         this.ellipticCurve = Objects.requireNonNull(ellipticCurve);
         this.subgroupOrder = Objects.requireNonNull(subgroupOrder);
     }

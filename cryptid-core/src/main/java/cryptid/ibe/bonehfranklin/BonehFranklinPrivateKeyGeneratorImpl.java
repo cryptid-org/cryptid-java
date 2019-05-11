@@ -17,14 +17,15 @@ import static cryptid.ibe.util.HashUtils.hashToPoint;
 final class BonehFranklinPrivateKeyGeneratorImpl extends PrivateKeyGenerator {
     private final MessageDigestFactory messageDigestFactory;
 
-    BonehFranklinPrivateKeyGeneratorImpl(PublicParameters publicParameters, BigInteger masterSecret, MessageDigestFactory messageDigestFactory) {
+    BonehFranklinPrivateKeyGeneratorImpl(final PublicParameters publicParameters, final BigInteger masterSecret,
+                                         final MessageDigestFactory messageDigestFactory) {
         super(publicParameters, masterSecret);
 
         this.messageDigestFactory = messageDigestFactory;
     }
 
     @Override
-    public PrivateKey extract(String identity) {
+    public PrivateKey extract(final String identity) {
         Objects.requireNonNull(identity);
 
         //Let Q_id = HashToPoint(E, p, q, id, hashfcn)

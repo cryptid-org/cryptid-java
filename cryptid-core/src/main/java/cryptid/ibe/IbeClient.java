@@ -34,7 +34,7 @@ public abstract class IbeClient {
      * is returned.
      * @param privateKey the private key
      * @param ciphertext the ciphertext to decrypt
-     * @return an Optional the plaintext result of the decryption or an empty Optional on failure
+     * @return an Optional with the plaintext result of the decryption or an empty Optional on failure
      */
     public abstract Optional<String> decrypt(PrivateKey privateKey, CipherTextTuple ciphertext);
 

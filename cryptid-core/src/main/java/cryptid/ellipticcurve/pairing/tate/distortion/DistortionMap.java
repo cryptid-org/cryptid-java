@@ -9,6 +9,8 @@ import java.util.Objects;
 /**
  * Abstract class for elliptic curve distortion maps that can be used to create linearly independent points. For
  * examples on distortion maps, see [Intro-to-IBE: p63.].
+ *
+ * @see <a href="https://dl.acm.org/citation.cfm?id=1370962" target="_blank">Introduction to Identity-Based Encryption</a>
  */
 public abstract class DistortionMap {
     protected final EllipticCurve ellipticCurve;

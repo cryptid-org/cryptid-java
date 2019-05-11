@@ -10,6 +10,10 @@ import cryptid.ellipticcurve.point.complexaffine.ComplexAffinePoint;
 import java.math.BigInteger;
 import java.util.Objects;
 
+/**
+ * Class representing the Tate-pairing operation with a specific Miller's Algorithm implementation and
+ * distortion map.
+ */
 public class TatePairing {
     private static final int MINIMAL_EMBEDDING_DEGREE = 2;
 

@@ -7,6 +7,9 @@ import java.math.BigInteger;
 import static cryptid.util.BigIntegerUtils.byteLength;
 import static cryptid.util.BigIntegerUtils.convertPositiveBigIntegerToByteArray;
 
+/**
+ * Utility class producing canonical field element representations.
+ */
 public class CanonicalUtils {
     private CanonicalUtils() {
         /*
@@ -15,14 +18,14 @@ public class CanonicalUtils {
     }
 
     /**
-     * Takes an element v in F_p^k, and returns a canonical octet string of fixed length representing v.  The parameter
-     * o MUST be either 0 or 1, and specifies the ordering of the encoding.
+     * Takes an element v in {@code F_p^k}, and returns a canonical octet string of fixed length representing v.
+     * The parameter o MUST be either 0 or 1, and specifies the ordering of the encoding.
      *
-     * [RFC 5091 - Algorithm 4.3.1]
      * @param p the order of the finite field
      * @param ordering the ordering of the encoding
      * @param v the number to get the canonical representation of
      * @return the canonical representation of v
+     * @see <a href="https://tools.ietf.org/html/rfc5091#section-4.3.1" target="_blank">RFC 5091 - Algorithm 4.3.1</a>
      */
     public static byte[] canonical(BigInteger p, CanonicalOrdering ordering, Complex v) {
         final int outputSize = byteLength(p);

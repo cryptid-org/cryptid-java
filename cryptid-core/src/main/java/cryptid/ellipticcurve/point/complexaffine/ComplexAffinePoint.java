@@ -37,7 +37,7 @@ public final class ComplexAffinePoint {
      * @param yr y coordinate real part
      * @param yi y coordinate imaginary part
      */
-    public ComplexAffinePoint(long xr, long xi, long yr, long yi) {
+    public ComplexAffinePoint(final long xr, final long xi, final long yr, final long yi) {
         this(new Complex(xr, xi), new Complex(yr, yi));
     }
 
@@ -47,7 +47,7 @@ public final class ComplexAffinePoint {
      * @param y the y coordinate
      * @throws NullPointerException if either of the coordinates is {@code null}
      */
-    public ComplexAffinePoint(Complex x, Complex y) {
+    public ComplexAffinePoint(final Complex x, final Complex y) {
         this.x = Objects.requireNonNull(x);
         this.y = Objects.requireNonNull(y);
     }

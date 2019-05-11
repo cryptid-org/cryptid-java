@@ -38,7 +38,7 @@ public final class AffinePoint {
      * @param x the x coordinate
      * @param y the y coordinate
      */
-    public AffinePoint(long x, long y) {
+    public AffinePoint(final long x, final long y) {
         this(BigInteger.valueOf(x), BigInteger.valueOf(y));
     }
 
@@ -47,7 +47,7 @@ public final class AffinePoint {
      * @param x the x coordinate
      * @param y the y coordinate
      */
-    public AffinePoint(BigInteger x, BigInteger y) {
+    public AffinePoint(final BigInteger x, final BigInteger y) {
         this.x = x;
         this.y = y;
     }

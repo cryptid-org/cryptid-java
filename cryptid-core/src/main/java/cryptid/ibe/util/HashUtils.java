@@ -6,6 +6,9 @@ import cryptid.ellipticcurve.point.affine.AffinePoint;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 
+/**
+ * Utility class providing hash operations as described in the RFC 5091.
+ */
 public class HashUtils {
     private HashUtils() {
         /*
@@ -16,14 +19,13 @@ public class HashUtils {
     /**
      * Takes an identity string id, the description of a subgroup of prime order q in E(F_p) or E(F_p^2), and
      * a cryptographic hash function hashfcn and returns a point Q_id of order q in E(F_p) or E(F_p^2).
-     *
-     * [RFC 5091 - Algorithm 4.4.1]
      * @param ec the elliptic curve to operate on
      * @param p the order of the finite field
      * @param q the order of the subgroup
      * @param id the identity string
      * @param hashFunction a cryptographically strong hash function
      * @return a point of order q
+     * @see <a href="https://tools.ietf.org/html/rfc5091#section-4.4.1" target="_blank">RFC 5091 - Algorithm 4.4.1</a>
      */
     public static AffinePoint hashToPoint(TypeOneEllipticCurve ec, BigInteger p, BigInteger q, String id, MessageDigest hashFunction) {
         //Let y = HashToRange(id, p, hashfcn), an element of F_p
@@ -46,13 +48,12 @@ public class HashUtils {
      * Takes a string s, an integer n, and a cryptographic hash function hashfcn as input and returns an integer
      * in the range 0 to n - 1 by cryptographic hashing.  The input n MUST  be less than 2^(hashlen), where hashlen
      * is the number of octets comprising the output of the hash function hashfcn.  HashToRange is based on Merkle's
-     * method for hashing [MERKLE], which is provably as secure as the underlying hash function hashfcn.
-     *
-     * [RFC 5091 - Algorithm 4.1.1]
+     * method for hashing, which is provably as secure as the underlying hash function hashfcn.
      * @param s a string
      * @param p a positive integer
      * @param hashFunction a cryptographically strong hash function
      * @return returns an integer in the appropriate range
+     * @see <a href="https://tools.ietf.org/html/rfc5091#section-4.1.1" target="_blank">RFC 5091 - Algorithm 4.1.1</a>
      */
     public static BigInteger hashToRange(byte[] s, BigInteger p, MessageDigest hashFunction) {
         //Let hashlen be the number of octets comprising the output of hashfcn
@@ -92,14 +93,13 @@ public class HashUtils {
     /**
      * Takes an integer b, a string p, and a cryptographic hash function hashfcn as input and returns a b-octet
      * pseudo-random string r as output.  The value of b MUST be less than or equal to the number of bytes in the output
-     * of hashfcn.  HashBytes is based on Merkle's method for hashing [MERKLE], which is provably as secure as the
+     * of hashfcn.  HashBytes is based on Merkle's method for hashing, which is provably as secure as the
      * underlying hash function hashfcn.
-     *
-     * [RFC 5091 - Algorithm 4.2.1]
      * @param b the length of the output
      * @param p a string
      * @param hashFunction a cryptographically strong hash function
      * @return pseudorandom bytes
+     * @see <a href="https://tools.ietf.org/html/rfc5091#section-4.2.1" target="_blank">RFC 5091 - Algorithm 4.2.1</a>
      */
     public static byte[] hashBytes(int b, byte[] p, MessageDigest hashFunction) {
         byte[] result = new byte[b];

@@ -9,7 +9,7 @@ import java.util.Objects;
  */
 public final class Complex {
     /**
-     * The complex number (0 + 0i).
+     * The complex number {@code (0 + 0i)}.
      */
     public static final Complex ZERO = new Complex(0L, 0L);
 
@@ -21,7 +21,7 @@ public final class Complex {
      * Constructs a new Complex with the specified long real part and 0 imaginary part.
      * @param real the real part
      */
-    public Complex (long real) {
+    public Complex (final long real) {
         this(real, 0L);
     }
 
@@ -30,7 +30,7 @@ public final class Complex {
      * @param real the real part
      * @param imaginary the imaginary part
      */
-    public Complex(long real, long imaginary) {
+    public Complex(final long real, final long imaginary) {
         this(BigInteger.valueOf(real), BigInteger.valueOf(imaginary));
     }
 
@@ -38,7 +38,7 @@ public final class Complex {
      * Constructs a new Complex with the specified BigInteger real part and 0 imaginary part.
      * @param real the real part
      */
-    public Complex(BigInteger real) {
+    public Complex(final BigInteger real) {
         this(real, BigInteger.ZERO);
     }
 
@@ -47,7 +47,7 @@ public final class Complex {
      * @param real the real part
      * @param imaginary the imaginary part
      */
-    public Complex(BigInteger real, BigInteger imaginary) {
+    public Complex(final BigInteger real, final BigInteger imaginary) {
         this.real = Objects.requireNonNull(real);
         this.imaginary = Objects.requireNonNull(imaginary);
     }

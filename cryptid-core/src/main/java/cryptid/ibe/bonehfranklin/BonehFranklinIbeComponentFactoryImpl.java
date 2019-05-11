@@ -22,12 +22,12 @@ public class BonehFranklinIbeComponentFactoryImpl implements IbeComponentFactory
      * Constructs a new instance.
      * @param secureRandom a cryptographically strong random source
      */
-    public BonehFranklinIbeComponentFactoryImpl(SecureRandom secureRandom) {
+    public BonehFranklinIbeComponentFactoryImpl(final SecureRandom secureRandom) {
         this.secureRandom = Objects.requireNonNull(secureRandom);
     }
 
     @Override
-    public IbeClient obtainClient(PublicParameters publicParameters) throws ComponentConstructionException {
+    public IbeClient obtainClient(final PublicParameters publicParameters) throws ComponentConstructionException {
         final MessageDigestFactory messageDigestFactory;
 
         try {
@@ -42,7 +42,7 @@ public class BonehFranklinIbeComponentFactoryImpl implements IbeComponentFactory
     }
 
     @Override
-    public PrivateKeyGenerator obtainPrivateKeyGenerator(PublicParameters publicParameters, BigInteger masterSecret) throws ComponentConstructionException {
+    public PrivateKeyGenerator obtainPrivateKeyGenerator(final PublicParameters publicParameters, final BigInteger masterSecret) throws ComponentConstructionException {
         final MessageDigestFactory messageDigestFactory;
 
         try {

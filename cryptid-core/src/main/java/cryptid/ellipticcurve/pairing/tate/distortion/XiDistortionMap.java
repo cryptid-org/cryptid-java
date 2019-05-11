@@ -10,20 +10,32 @@ import java.math.BigInteger;
 import java.util.Objects;
 
 /**
- * Distortion map that calculates a complex \xi value and then multiplies the x coordinate of the point with it. This is
- * a specific implementation for Type-One elliptic curves.
+ * Distortion map that calculates a complex \xi value and then multiplies the x coordinate of the point with it.
+ * This is a specific implementation for Type-One elliptic curves.
  *
  * In the ordinary case (this always applies, for any curve with any prime):
- *  \phi(x, y) = (\xi \cdot x, y)
- *  \xi \neq 1, \xi^{3} = 1
+ * <pre>
+ * {@code
+ * \phi(x, y) = (\xi \cdot x, y)
+ * \xi \neq 1, \xi^{3} = 1
+ * }
+ * </pre>
  *
  * In this specific case (if the aforementioned conditions hold):
+ * <pre>
+ * {@code
  * \xi = \frac{p - 1}{2}(1 + 3^{\frac{p + 1}{4}}i)
+ * }
+ * </pre>
  */
 public class XiDistortionMap extends DistortionMap {
     private final Complex xi;
 
-    public XiDistortionMap(TypeOneEllipticCurve ellipticCurve) {
+    /**
+     * Constructs a new xi distortion map over the specified curve.
+     * @param ellipticCurve the elliptic curve to operate over
+     */
+    public XiDistortionMap(final TypeOneEllipticCurve ellipticCurve) {
         super(ellipticCurve);
 
         this.xi = precalculateXi();

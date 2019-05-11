@@ -4,13 +4,13 @@ import java.math.BigInteger;
 import java.util.Objects;
 
 /**
- * Class representing elliptic curves of the form {@code y^2 = x^3 + 1} with p congruent to 11 modulo 12.
+ * Class representing elliptic curves of the form {@code y^2 = x^3 + 1} with {@code p} congruent to 11 modulo 12.
  */
 public class TypeOneEllipticCurve extends EllipticCurve {
     private static final BigInteger ELEVEN = BigInteger.valueOf(11L);
     private static final BigInteger TWELVE = BigInteger.valueOf(12L);
 
-    private TypeOneEllipticCurve(BigInteger fieldOrder) {
+    private TypeOneEllipticCurve(final BigInteger fieldOrder) {
         super(BigInteger.ZERO, BigInteger.ONE, fieldOrder);
     }
 

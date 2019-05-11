@@ -7,6 +7,10 @@ import cryptid.ellipticcurve.point.complexaffine.ComplexAffinePoint;
 
 import java.math.BigInteger;
 
+/**
+ * Class implementing the Miller's algorithm as it's written in the
+ * <a href="https://crypto.stanford.edu/pbc/notes/ep/miller.html" target="_blank">Stanford Pairing-based Cryptography Notes</a>.
+ */
 public final class StanfordMillerAlgorithmImpl extends MillerAlgorithm {
 
     public StanfordMillerAlgorithmImpl(final EllipticCurve ellipticCurve, final BigInteger subgroupOrder) {
@@ -14,10 +18,9 @@ public final class StanfordMillerAlgorithmImpl extends MillerAlgorithm {
     }
 
     /**
-     * Computes the Tate pairing using Miller's algorithm. This method implements Miller's algorithm
-     * as it's written on this page: https://crypto.stanford.edu/pbc/notes/ep/miller.html
-     * @param p a point of E[r]
-     * @param q a point linearly independent from p
+     * Computes the Tate pairing using the Stanford PBC Miller's algorithm.
+     * @param p a point of {@code }E[r]}
+     * @param q a point linearly independent from {@code p}
      * @return the result of the pairing
      */
     @Override
@@ -79,13 +82,12 @@ public final class StanfordMillerAlgorithmImpl extends MillerAlgorithm {
     }
 
     /**
-     * Evaluates the divisor of a tangent on a Type-1 elliptic curve.
-     *
-     * [RFC 5091 - Algorithm 3.4.2]
+     * Evaluates the divisor of a tangent on a Type-One elliptic curve.
      * @param ec the elliptic curve to operate on
-     * @param a a point in E(F_p)
-     * @param b a point E(F_p^2)
-     * @return an element of F_p^2 that is the divisor of the line tangent to A evaluated at B
+     * @param a a point in {@code E(F_p)}
+     * @param b a point {@code E(F_p^2)}
+     * @return an element of {@code F_p^2} that is the divisor of the line tangent to {@code A} evaluated at {@code B}
+     * @see <a href="https://tools.ietf.org/html/rfc5091#section-3.4.1" target="_blank">RFC 5091 - Algorithm 3.4.2</a>
      */
     private Complex evaluateTangent(final EllipticCurve ec, final AffinePoint a, final ComplexAffinePoint b) {
         // ----
@@ -133,13 +135,15 @@ public final class StanfordMillerAlgorithmImpl extends MillerAlgorithm {
     }
 
     /**
-     * Evaluates the divisor of a vertical line on a Type-1 elliptic curve.
+     * Evaluates the divisor of a vertical line on a Type-One elliptic curve.
      *
      * [RFC 5091 - Algorithm 3.4.1]
      * @param ec the elliptic curve to operate on
-     * @param a a point in E(F_p)
-     * @param b a point E(F_p^2)
-     * @return an element of F_p^2 that is the divisor of the vertical line going through A evaluated at B
+     * @param a a point in {@code E(F_p)}
+     * @param b a point {@code E(F_p^2)}
+     * @return an element of {@code F_p^2} that is the divisor of the vertical line going through
+     *         {@code A} evaluated at {@code B}
+     * @see <a href="https://tools.ietf.org/html/rfc5091#section-3.4.1" target="_blank">RFC 5091 - Algorithm 3.4.2</a>
      */
     private Complex evaluateVertical(final EllipticCurve ec, final AffinePoint a, final ComplexAffinePoint b) {
         // r = x_B - x_A
@@ -148,14 +152,14 @@ public final class StanfordMillerAlgorithmImpl extends MillerAlgorithm {
     }
 
     /**
-     * Evaluates the divisor of a line on a Type-1 elliptic curve.
-     *
-     * [RFC 5091 - Algorithm 3.4.3]
+     * Evaluates the divisor of a line on a Type-One elliptic curve.
      * @param ec the elliptic curve to operate on
-     * @param a a point in E(F_p)
-     * @param aprime a point in E(F_o)
-     * @param b a point in E(F_p^2)
-     * @return an element of F_p^2 that is the divisor of the line going through A' and A'' evaluated at B.
+     * @param a a point in {@code E(F_p)}
+     * @param aprime a point in {@code E(F_o)}
+     * @param b a point in {@code E(F_p^2)}
+     * @return an element of {@code F_p^2} that is the divisor of the line going through
+     *         {@code A'} and {@code A''} evaluated at {@code B}
+     * @see <a href="https://tools.ietf.org/html/rfc5091#section-3.4.1" target="_blank">RFC 5091 - Algorithm 3.4.3</a>
      */
     private Complex evaluateLine(final EllipticCurve ec, final AffinePoint a, final AffinePoint aprime, final ComplexAffinePoint b) {
         // ----

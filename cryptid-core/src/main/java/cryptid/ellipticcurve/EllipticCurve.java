@@ -18,12 +18,12 @@ public class EllipticCurve {
     /**
      * Constructs a new elliptic curve of the form {@code y^2 = x^3 + ax + b} using the specified
      * coefficients.
-     * @param a the a coefficient.
-     * @param b the b coefficient.
+     * @param a the {@code a} coefficient.
+     * @param b the {@code b} coefficient.
      * @param fieldOrder the order of the finite field over the curve.
      * @throws NullPointerException if any of the arguments is {@code null}.
      */
-    EllipticCurve(BigInteger a, BigInteger b, BigInteger fieldOrder) {
+    EllipticCurve(final BigInteger a, final BigInteger b, final BigInteger fieldOrder) {
         this.a = Objects.requireNonNull(a);
         this.b = Objects.requireNonNull(b);
         this.fieldOrder = Objects.requireNonNull(fieldOrder);
@@ -69,7 +69,7 @@ public class EllipticCurve {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         EllipticCurve that = (EllipticCurve) o;

@@ -16,6 +16,9 @@ import cryptid.ibe.util.SolinasPrimeFactory;
 
 import java.security.SecureRandom;
 
+/**
+ * Class of static factories providing a convenient entry point to the CryptID library.
+ */
 public final class CryptID {
     private CryptID() {
         /*
@@ -23,6 +26,13 @@ public final class CryptID {
          */
     }
 
+    /**
+     * Creates a new Boneh-Franklin IBE setup that can be used for encryption, decryption and private key
+     * extraction.
+     * @param securityLevel The desired security level of the setup.
+     * @return a ready-to-use {@code IdentityBasedEncryption} instance
+     * @throws SetupException if the IBE setup cannot be created
+     */
     public static IdentityBasedEncryption setupBonehFranklin(final SecurityLevel securityLevel) throws SetupException {
         try {
             final SecureRandom secureRandom = SecureRandom.getInstanceStrong();
@@ -44,7 +54,7 @@ public final class CryptID {
                     componentFactory.obtainPrivateKeyGenerator(setup.getPublicParameters(), setup.getMasterSecret());
 
             return new IdentityBasedEncryption(client, privateKeyGenerator);
-        } catch (Exception e) {
+        } catch (final Exception e) {
             throw new SetupException("Could not setup Boneh-Franklin IBE.", e);
         }
     }
