@@ -15,3 +15,10 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'JaCoCo'
+    summaryFileLocation: 'coverage/target/site/jacoco-aggregate/jacoco.xml'
+    reportDirectory: 'coverage/target/site/jacoco-aggregate'
+    failIfCoverageEmpty: true
