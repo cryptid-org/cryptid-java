@@ -102,3 +102,12 @@ However, `cryptid-core` and `cryptid-cli` can only be used in an environment whi
     * SHA-256 for `SecurityLevel.MEDIUM` (every implementation of the Java platform includes SHA-256)
     * SHA-384 for `SecurityLevel.HIGH`
     * SHA-512 for `SecurityLevel.HIGHEST`
+
+## Acknowledgements
+
+This work is supported by the construction EFOP-3.6.3-VEKOP-16-2017-00002. The project is supported by the European Union, co-financed by the European Social Fund.
+
+
+<p align="right">
+  <img alt="CryptID" src="docs/img/szechenyi-logo.jpg" width="350">
+</p>
