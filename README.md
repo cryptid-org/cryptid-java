@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-Identity-based Encryption solution you can trust.
+Cross-platform Identity-based Encryption solution.
 </p>
 
 ---
@@ -23,6 +23,10 @@ CryptID.java can be used to setup Boneh-Frankling Identity-based Encryption syst
   * and decrypt messages with the extracted private keys.
 
 For more information on Identity-based Encryption, please read the aforementioned RFC or some related books and papers.
+
+## Install
+
+
 
 ## Working with CryptID.java
 
