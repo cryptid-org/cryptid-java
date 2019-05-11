@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cryptid-cli</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>CryptID.java CLI</name>
 
     <parent>
 		<groupId>cryptid</groupId>
 		<artifactId>cryptid-parent</artifactId>
-		<version>1.0-SNAPSHOT</version>
+		<version>1.0.0</version>
     </parent>
 
     <dependencies>
@@ -19,7 +19,7 @@
 		<dependency>
 			<groupId>cryptid</groupId>
 			<artifactId>cryptid-core</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>1.0.0</version>
 		</dependency>
         <dependency>
             <groupId>info.picocli</groupId>
