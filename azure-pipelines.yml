@@ -30,5 +30,5 @@ steps:
     CI_NAME: azure-pipelines
     CI_BUILD_NUMBER: $(Build.BuildNumber)
     CI_BUILD_URL: $(Build.BuildUri)
-    CI_BRANCH: $(Build.SourceBranch)
+    CI_BRANCH: $(Build.SourceBranchName)
     COVERALLS_REPO_TOKEN: $(CoverallsRepoToken)
