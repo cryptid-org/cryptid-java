@@ -7,7 +7,7 @@
 <div align="center">
 
 [![Build Status](https://dev.azure.com/cryptid-org/cryptid-java/_apis/build/status/cryptid-org.cryptid-java?branchName=master)](https://dev.azure.com/cryptid-org/cryptid-java/_build/latest?definitionId=1&branchName=master)
-[![Coverage Status](https://coveralls.io/repos/github/cryptid-org/cryptid-java/badge.svg?branch=refs/heads/master)](https://coveralls.io/github/cryptid-org/cryptid-java?branch=refs/heads/master)
+[![Coverage Status](https://coveralls.io/repos/github/cryptid-org/cryptid-java/badge.svg?branch=master)](https://coveralls.io/github/cryptid-org/cryptid-java?branch=master)
 [![License](https://img.shields.io/github/license/cryptid-org/cryptid-java.svg)](LICENSE)
 
 </div>
